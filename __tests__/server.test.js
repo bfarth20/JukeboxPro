@@ -30,7 +30,7 @@ describe("POST /users/register", () => {
     const {
       rows: [user],
     } = await db.query(
-      "SELECT * FROM users WHERE username = 'eFa7xWeIF5A3cpF5JrM1UzsI'",
+      "SELECT * FROM users WHERE username = 'eFa7xWeIF5A3cpF5JrM1UzsI'"
     );
     expect(user).toBeDefined();
     expect(user).toHaveProperty("password");
@@ -67,6 +67,7 @@ describe("Protected routes", () => {
       expect(response.status).toBe(200);
 
       token = response.text;
+      console.log("🧪 TOKEN FROM LOGIN:", token); // ← ADD THIS
 
       expect(token).toBeDefined();
       expect(token).toMatch(/\w+\.\w+\.\w+/);
@@ -103,7 +104,7 @@ describe("Protected routes", () => {
         .set("Authorization", `Bearer ${token}`);
       expect(response.status).toBe(200);
       expect(response.body).toEqual(
-        expect.arrayContaining([expect.objectContaining(newPlaylist)]),
+        expect.arrayContaining([expect.objectContaining(newPlaylist)])
       );
     });
   });
@@ -180,7 +181,7 @@ describe("Protected routes", () => {
         .set("Authorization", `Bearer ${token}`);
       expect(response.status).toBe(200);
       expect(response.body).toEqual(
-        expect.arrayContaining([expect.objectContaining(newPlaylist)]),
+        expect.arrayContaining([expect.objectContaining(newPlaylist)])
       );
     });
   });
