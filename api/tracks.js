@@ -22,7 +22,7 @@ router.route("/:id").get(async (req, res) => {
   res.send(track);
 });
 
-// 🔒 GET /tracks/:id/playlists
+// GET /tracks/:id/playlists
 router.get("/:id/playlists", requireUser, async (req, res, next) => {
   try {
     const trackId = Number(req.params.id);

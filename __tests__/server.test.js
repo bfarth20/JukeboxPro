@@ -67,7 +67,6 @@ describe("Protected routes", () => {
       expect(response.status).toBe(200);
 
       token = response.text;
-      console.log("🧪 TOKEN FROM LOGIN:", token); // ← ADD THIS
 
       expect(token).toBeDefined();
       expect(token).toMatch(/\w+\.\w+\.\w+/);

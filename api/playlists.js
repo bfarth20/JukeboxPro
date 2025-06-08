@@ -14,7 +14,7 @@ import {
 
 const router = express.Router();
 
-// 🔒 Require login for all routes
+// Require login for all routes
 router.use(requireUser);
 
 // GET /playlists - get all playlists owned by the user
